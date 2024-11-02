@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+    <div id="app">
+        <form action="/test.html">
+            <h2>CONNEXION</h2>
+
+            <div class="form-row flex">
+                <input type="email" class="flex-1" name="email" placeholder="Your email ">
+            </div>
+            <div class="error" id="error-email">Your email is incorrect !</div>
+            <div class="form-row flex relative">
+                <input type="password" class="flex-1" name="password" placeholder="Your mdp" autocomplete="off">
+                <i class="fas icon-password fa-eye absolute"></i>
+              
+            </div>
+            
+            <div class="form-row flex">
+                <button class="submit flex-1"><strong>Se connecter</strong></button>
+            </div>
+            <div class="form-row">
+                <p class="form-info">Vous n'avez pas de compte ? si oui, <a href="/register.html">cliquez ici</a> pour vous s'inscrire.</p>
+            </div>
+        </form>
+       
+
+    </div>
+    <script src="/assets/js/function/listener.js"></script>
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

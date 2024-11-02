@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+    <div id="app">
+        <form action="/test.html" method="get" name="register">
+            <h2>INSCRIPTION</h2>
+
+            <div class="form-row flex gap-10">
+                <input type="text" class="flex-1" name="firstname" placeholder="Your first name" >
+                <input type="text" class="flex-1" name="lastname" placeholder="Your last name">
+            </div>
+
+            <div class="error" id="error-firstname">Your firstname length must between 2 and 15</div>
+            <div class="error" id="error-lastname">Your firstname length must between 2 and 15</div>
+
+            <div class="form-row flex">
+                <input type="email" class="flex-1" name="email" placeholder="Your email ">
+            </div>
+
+            <div class="error" id="error-email">Your email is incorrect !</div>
+
+             <div class="form-row flex relative">
+                <input type="password" class="flex-1" name="password" placeholder="Your mdp " autocomplete="off" >
+                <i class="fas icon-password fa-eye absolute"></i>
+            </div>
+
+            <div class="error" id="error-password"></div>
+            
+            <div class="form-row flex relative">
+                <input type="password" class="flex-1" name="passwordCorfirm" placeholder="Confirm Your mdp " autocomplete="off">
+                <i class="fas icon-password fa-eye absolute "></i>
+            </div>
+
+            <div class="error" id="error-confirm-password"></div>
+            
+            <div class="form-row flex">
+                <button class="submit flex-1" disabled><strong>S'inscrire</strong></button>
+            </div>
+            <div class="form-row">
+                <p class="form-info">Vous avez deja un compte ? si oui, <a href="/login.html">cliquez ici</a> pour vous connecter.</p>
+            </div>
+        </form>
+    </div>
+    <script src="/assets/js/function/listener.js"></script>
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
