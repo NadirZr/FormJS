@@ -38,7 +38,8 @@ var listenerFunction = {
         }else{
             check = {...check,firstname : true }
         }
-        console.log(check);
+        setSubmitButton();
+        //console.log(check);
     },
     checkLastName : (ev) =>{
         var input = ev.target;
@@ -59,7 +60,8 @@ var listenerFunction = {
         }else{
             check = {...check,lastname : true }
         }
-        console.log(check);
+        setSubmitButton();
+        //console.log(check);
     },
 
     checkEmail : (ev) =>{
@@ -73,12 +75,14 @@ var listenerFunction = {
             error= 'your email is not valid';
         }
         if(error){
-            check = {...check,password : false }
+            check = {...check,email : false }
             document.getElementById('error-email').innerHTML = error;
             document.getElementById('error-email').style.display = 'block';
         }else{
-            check = {...check,password : true }
+            check = {...check,email : true }
         }
+        setSubmitButton()
+        //console.log(check);
     },
     checkPassword : (ev) =>{
         var input = ev.target;
@@ -94,7 +98,11 @@ var listenerFunction = {
             check = {...check,password : false }
             document.getElementById('error-password').innerHTML = error;
             document.getElementById('error-password').style.display = 'block';
+        }else{
+            check = {...check,password : true }
         }
+        setSubmitButton()
+        //console.log(check);
         
     },
     checkPasswordConfirm: (ev)=>{
@@ -107,6 +115,7 @@ var listenerFunction = {
             error= 'you must confirm your password';
         }else if(content !== password.value){
             error = 'les deux mots de passe ne sont pas similaire';
+
         }
         if (error){
             check = {...check,passwordConfirm : false }
@@ -116,19 +125,44 @@ var listenerFunction = {
         }else{
             check = {...check,passwordConfirm : true }
         }
+        setSubmitButton()
+        //console.log(check);
     }
 
 }
 
 var checkFormValidity = () =>{
+    var result = true; 
     if(formRegister){
-        
+        if(Object.keys(check).length === 5){
+           for (const key in check) {
+                const value = check[key];
+                result = result && value;
+                if(!result) return result;
+           }
+           return result;
+        }
+    }
+    return false;
+}
+
+var setSubmitButton = () =>{
+    if(formRegister){
+        if(checkFormValidity()){
+            if(formRegister.elements[5]){
+                formRegister.elements[5].disabled = false; 
+                return;
+            }
+            
+        }else{
+            formRegister.elements[5].disabled = true;
+        }
+
     }
 }
 
 var setupListeners = () => {
     
-
     if (firstname) {
         firstname.addEventListener('keyup', listenerFunction.checkFirstName);
     }
@@ -136,8 +170,7 @@ var setupListeners = () => {
     if (lastname) {
         lastname.addEventListener('keyup', listenerFunction.checkLastName);
     }
-    
-    
+
     if(email){
         email.addEventListener('keyup', listenerFunction.checkEmail);
     }
