@@ -1,10 +1,11 @@
 var icons = document.querySelectorAll('i.fas.icon-password');
+var formRegister = document.forms['register'];
+var formLogin = document.forms['login'];
 var firstname = document.forms[0]["firstname"];
 var lastname = document.forms[0]["lastname"];
 var email = document.forms[0]["email"];
 var password = document.forms[0]["password"];
 var passwordConfirm = document.forms[0]["passwordCorfirm"];
-var formRegister = document.forms['register'];
 var check = {};
 
 var listenerFunction = {
@@ -143,8 +144,20 @@ var checkFormValidity = () =>{
            return result;
         }
     }
+    if(formLogin){
+        if(Object.keys(check).length === 2){
+           for (const key in check) {
+                const value = check[key];
+                result = result && value;
+                if(!result) return result;
+           }
+           return result;
+        }
+    }
     return false;
 }
+
+
 
 var setSubmitButton = () =>{
     if(formRegister){
@@ -156,6 +169,18 @@ var setSubmitButton = () =>{
             
         }else{
             formRegister.elements[5].disabled = true;
+        }
+
+    }
+    if(formLogin){
+        if(checkFormValidity()){
+            if(formLogin.elements[2]){
+                formLogin.elements[2].disabled = false; 
+                return;
+            }
+            
+        }else{
+            formLogin.elements[2].disabled = true;
         }
 
     }
