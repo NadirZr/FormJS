@@ -72,7 +72,7 @@ var listenerFunction = {
         var error= '';
         if(!content){
             error= 'your email must not be empty';
-        }else if(!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(content)){
+        }else if(!/^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$/.test(content)){
             error= 'your email is not valid';
         }
         if(error){
@@ -92,7 +92,7 @@ var listenerFunction = {
         var error= '';
         if(!content){
             error= 'your password must not be empty';
-        }else if(!/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(content)){
+        }else if(!/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/.test(content)){
             error= 'your password is not valid';
         }
         if(error){
